@@ -66,12 +66,19 @@ public:
 
         NumValue = _Size;
 
+
+        int* Ptr = ArrPtr;
+        ArrPtr = new int[_Size];
+        // Ptr    [0][1][2][3][4]
+        // ArrPtr [?][?][?][?][?][?][?][?][?][?]
+
+        
+
         if (nullptr != ArrPtr)
         {
             Release();
         }
 
-        ArrPtr = new int[_Size];
     }
 
     void Release()
