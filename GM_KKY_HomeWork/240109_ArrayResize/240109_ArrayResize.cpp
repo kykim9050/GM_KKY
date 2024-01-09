@@ -11,7 +11,20 @@ public:
     // 디폴트 생성자
     IntArray(int _Size)
     {
-        ReSize(_Size);
+        if (0 >= _Size)
+        {
+            MsgBoxAssert("배열의 크기가 0일수 없습니다");
+        }
+
+        NumValue = _Size;
+
+
+        if (nullptr != ArrPtr)
+        {
+            Release();
+        }
+
+        ArrPtr = new int[_Size];
     }
 
     // 디폴트 복사 생성자
@@ -64,15 +77,26 @@ public:
             MsgBoxAssert("배열의 크기가 0일수 없습니다");
         }
 
-        NumValue = _Size;
+        int NumPtr = Num();
 
+        NumValue = _Size;
 
         int* Ptr = ArrPtr;
         ArrPtr = new int[_Size];
         // Ptr    [0][1][2][3][4]
         // ArrPtr [?][?][?][?][?][?][?][?][?][?]
 
-        
+        for (int i = 0; i < NumPtr; i++)
+        {
+            ArrPtr[i] = Ptr[i];
+            int a = 0;
+        }
+
+        if (nullptr != Ptr)
+        {
+            delete Ptr;
+            Ptr = nullptr;
+        }
 
         if (nullptr != ArrPtr)
         {
@@ -115,7 +139,7 @@ int main()
             NewArray[i] = i;
         }
 
-        NewArray.ReSize(10);
+        //NewArray.ReSize(10);
 
         for (int i = 0; i < NewArray.Num(); i++)
         {
