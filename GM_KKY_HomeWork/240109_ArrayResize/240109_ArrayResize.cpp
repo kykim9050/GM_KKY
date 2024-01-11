@@ -1,8 +1,6 @@
-﻿// Array.cpp : 이 파일에는 'main' 함수가 포함됩니다. 거기서 프로그램 실행이 시작되고 종료됩니다.
-//
-
-#include <iostream>
+﻿#include <iostream>
 #include <ConsoleEngine/EngineDebug.h>
+
 
 class IntArray
 {
@@ -11,26 +9,16 @@ public:
     // 디폴트 생성자
     IntArray(int _Size)
     {
-        if (0 >= _Size)
-        {
-            MsgBoxAssert("배열의 크기가 0일수 없습니다");
-        }
-
-        NumValue = _Size;
-
-
-        if (nullptr != ArrPtr)
-        {
-            Release();
-        }
-
-        ArrPtr = new int[_Size];
+        ReSize(_Size);
     }
 
     // 디폴트 복사 생성자
     IntArray(const IntArray& _Other)
     {
         Copy(_Other);
+
+        //NumValue = _Other.NumValue;
+        //ArrPtr = _Other.ArrPtr;
     }
     // 디폴트 소멸자
     ~IntArray()
@@ -77,32 +65,23 @@ public:
             MsgBoxAssert("배열의 크기가 0일수 없습니다");
         }
 
-        int NumPtr = Num();
+        int OriginNum = NumValue <= _Size ? NumValue : _Size;
 
         NumValue = _Size;
-
+        
         int* Ptr = ArrPtr;
         ArrPtr = new int[_Size];
-        // Ptr    [0][1][2][3][4]
-        // ArrPtr [?][?][?][?][?][?][?][?][?][?]
 
-        for (int i = 0; i < NumPtr; i++)
+        for (int i = 0; i < OriginNum; i++)
         {
             ArrPtr[i] = Ptr[i];
-            int a = 0;
         }
 
         if (nullptr != Ptr)
         {
-            delete Ptr;
+            delete[] Ptr;
             Ptr = nullptr;
         }
-
-        if (nullptr != ArrPtr)
-        {
-            Release();
-        }
-
     }
 
     void Release()
@@ -120,31 +99,29 @@ private:
 };
 
 
-int GValue = 20;
 
-int& Test()
-{
-    return GValue;
-}
+
 
 int main()
 {
     LeckCheck;
-    
+
+    IntArray NewArray = IntArray(5);
+    // [?][?][?][?][?]
+
+    for (int i = 0; i < NewArray.Num(); i++)
     {
-        IntArray NewArray = IntArray(5);
-        // NewArray0 [0][1][2][3][4]
-        for (int i = 0; i < NewArray.Num(); i++)
-        {
-            NewArray[i] = i;
-        }
+        NewArray[i] = i;
+    }
 
-        //NewArray.ReSize(10);
+    // 리사이즈 값은 얼마든지 변경될 수 있다.
+    NewArray.ReSize(10);
+    // ?는 무슨값이 들어가 있어도 괜찮다.
+    // [0][1][2][3][4][?][?][?][?][?]
 
-        for (int i = 0; i < NewArray.Num(); i++)
-        {
-            std::cout << NewArray[i] << std::endl;
-        }
+    for (size_t i = 0; i < NewArray.Num(); i++)
+    {
+        std::cout << NewArray[i] << std::endl;
     }
 
 }
