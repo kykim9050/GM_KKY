@@ -53,6 +53,43 @@ public:
 	};
 
 
+	// reverse_iterator
+	class reverse_iterator
+	{
+		friend MyList;
+
+	public:
+		reverse_iterator()
+		{
+		}
+
+		reverse_iterator(ListNode* _CurNode)
+			: CurNode(_CurNode)
+		{
+		}
+
+		bool operator!=(const reverse_iterator& _Other)
+		{
+			
+		}
+
+		DataType& operator*()
+		{
+			
+		}
+
+		// 연산자 겹지정 중에 
+		void operator++()
+		{
+			
+		}
+
+
+	private:
+		ListNode* CurNode = nullptr;
+	};
+	// --------
+
 	MyList()
 	{
 		Start->Next = End;
@@ -189,6 +226,25 @@ int main()
 	{
 		// 개념이 거꾸로인 iterator
 		std::cout << "내 리스트" << std::endl;
+
+		MyList NewList = MyList();
+		// 0, 1, 2, 3, 4
+		for (int i = 0; i < 5; i++)
+		{
+			NewList.push_back(i);
+			// NewList.push_front();
+		}
+
+		MyList::reverse_iterator rStartIter = NewList.rbegin();
+		MyList::reverse_iterator rEndIter = NewList.rend();
+
+		for (/*std::list<int>::iterator StartIter = NewList.begin()*/
+			; rStartIter != rEndIter
+			; ++rStartIter)
+		{
+			std::cout << *rStartIter << std::endl;
+		}
+
 
 	}
 }
