@@ -70,20 +70,19 @@ public:
 
 		bool operator!=(const reverse_iterator& _Other)
 		{
-			
+			return CurNode != _Other.CurNode;
 		}
 
 		DataType& operator*()
 		{
-			
+			return CurNode->Data;
 		}
 
 		// 연산자 겹지정 중에 
 		void operator++()
 		{
-			
+			CurNode = CurNode->Next;
 		}
-
 
 	private:
 		ListNode* CurNode = nullptr;
@@ -110,6 +109,15 @@ public:
 		}
 	}
 
+	reverse_iterator rbegin()
+	{
+		return reverse_iterator(Start->Next);
+	}
+
+	reverse_iterator rend()
+	{
+		return reverse_iterator(End);
+	}
 
 	iterator begin()
 	{
@@ -244,7 +252,5 @@ int main()
 		{
 			std::cout << *rStartIter << std::endl;
 		}
-
-
 	}
 }
