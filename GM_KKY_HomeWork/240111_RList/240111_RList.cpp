@@ -78,7 +78,6 @@ public:
 			return CurNode->Data;
 		}
 
-		// 연산자 겹지정 중에 
 		void operator++()
 		{
 			CurNode = CurNode->Prev;
@@ -87,7 +86,6 @@ public:
 	private:
 		ListNode* CurNode = nullptr;
 	};
-	// --------
 
 	MyList()
 	{
@@ -247,12 +245,12 @@ int main()
 		MyList::reverse_iterator rStartIter = NewList.rbegin();
 		MyList::reverse_iterator rEndIter = NewList.rend();
 
-		//for (/*std::list<int>::iterator StartIter = NewList.begin()*/
-		//	; rStartIter != rEndIter
-		//	; ++rStartIter)
-		//{
-		//	std::cout << *rStartIter << std::endl;
-		//}
-		std::cout << *rStartIter << std::endl;
+		for (/*std::list<int>::iterator StartIter = NewList.begin()*/
+			; rStartIter != rEndIter
+			; ++rStartIter)
+		{
+			std::cout << *rStartIter << std::endl;
+		}
+		//std::cout << *rStartIter << std::endl;
 	}
 }
