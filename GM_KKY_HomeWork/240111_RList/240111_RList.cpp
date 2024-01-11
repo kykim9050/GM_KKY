@@ -19,6 +19,11 @@ public:
 	{
 	}
 
+	virtual ~iteratorBase()
+	{
+
+	}
+
 	//virtual bool operator!=(const iteratorBase& _Other)
 	//{
 	//	return CurNode != _Other.CurNode;
