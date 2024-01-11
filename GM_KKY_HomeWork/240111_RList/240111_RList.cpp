@@ -4,6 +4,45 @@
 
 typedef int DataType;
 
+
+class iteratorBase
+{
+
+public:
+	iteratorBase()
+	{
+
+	}
+
+	iteratorBase(class ListNode* _CurNode)
+		: CurNode(_CurNode)
+	{
+	}
+
+	//virtual bool operator!=(const iteratorBase& _Other)
+	//{
+	//	return CurNode != _Other.CurNode;
+	//}
+
+	//virtual DataType& operator*()
+	//{
+	//	DataType temp = 0;
+	//	return temp;
+	//}
+
+	//virtual void operator++()
+	//{
+	//}
+
+private:
+	class ListNode* CurNode = nullptr;
+};
+
+
+
+
+
+
 class MyList
 {
 private:
@@ -253,4 +292,10 @@ int main()
 		}
 		//std::cout << *rStartIter << std::endl;
 	}
+
+
+	{
+		iteratorBase NewIter = iteratorBase();
+	}
+
 }
