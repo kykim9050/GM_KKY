@@ -31,6 +31,16 @@ public:
 		Pos += _Dir;
 	}
 
+	inline int2 GetPrevPos() const
+	{
+		return PrevPos;
+	}
+
+	inline void SetPrevPos(const int2 _Pos)
+	{
+		PrevPos = _Pos;
+	}
+
 	template<typename EnumType>
 	ConsoleObject* Collision(EnumType _UpdateOrder)
 	{
@@ -50,7 +60,7 @@ protected:
 	int2 DirPos = { 0, 0 };
 
 private:
-
+	int2 PrevPos = { 0, 0 };
 	int2 Pos = { 0, 0 };
 	char RenderChar = '@';
 };

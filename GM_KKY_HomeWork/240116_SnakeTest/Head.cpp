@@ -24,7 +24,7 @@ void Head::Update()
 
 	// X Y
 	// 1 0
-
+	SetPrevPos(GetPos());
 
 	switch (Select)
 	{
@@ -78,8 +78,8 @@ void Head::Update()
 	default:
 		break;
 	}
+	
 
-	// 입력받은 
 
 	if (nullptr == BodyManager::GetCurBody())
 	{
