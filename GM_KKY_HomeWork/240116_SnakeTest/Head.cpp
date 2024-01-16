@@ -96,6 +96,7 @@ void Head::Update()
 		// 여기에 CurBody와 Head의 관계를 이을 수 있도록 하며
 		// 재귀로 body의 끝에 붙일 수 있도록 하자.
 		Back = CurBody;
+		CurBody->SetFront(this);
 
 		BodyManager::ResetBody();
 	}

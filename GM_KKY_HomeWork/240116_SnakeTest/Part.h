@@ -3,6 +3,11 @@
 
 class Part : public ConsoleObject
 {
+public:
+	void SetFront(Part* _FrontPtr)
+	{
+		Front = _FrontPtr;
+	}
 
 protected:
 	Part* Front = nullptr;
