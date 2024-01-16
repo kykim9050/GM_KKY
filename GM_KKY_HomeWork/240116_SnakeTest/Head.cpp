@@ -28,26 +28,40 @@ void Head::Update()
 	{
 	case 'A':
 	case 'a':
+	{
 		AddPos(Left);
+		CurPos = Left;
 		break;
+	}
 	case 'S':
 	case 's':
+	{
 		AddPos(Down);
+		CurPos = Down;
 		break;
+	}
 	case 'W':
 	case 'w':
+	{
 		AddPos(Up);
+		CurPos = Up;
 		break;
+	}
 	case 'D':
 	case 'd':
+	{
 		AddPos(Right);
+		CurPos = Right;
 		break;
+	}
 	case '1':
 		GetCore()->EngineEnd();
 		break;
 	default:
 		break;
 	}
+
+	// 입력받은 
 
 	if (nullptr == BodyManager::GetCurBody())
 	{
