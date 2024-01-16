@@ -41,6 +41,13 @@ public:
 	ConsoleObject* Collision(int _UpdateOrder);
 
 protected:
+	inline int2 ReversePos() const
+	{
+		return DirPos * (-1);
+	}
+	// 현재 오브젝트가 이동한 방향
+	// Left, Right, Up, Down
+	int2 DirPos = { 0, 0 };
 
 private:
 

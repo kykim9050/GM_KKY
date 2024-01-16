@@ -4,6 +4,7 @@
 #include "BodyManager.h"
 #include "Body.h"
 
+
 // 
 // 1. 내가 특정 방향으로 진행했다면 다음 입력때는 그 반대방향으로는 갈수가 없다.
 //    내가 이동하는 방향의 반대방향으로는 가면 안된다.
@@ -35,7 +36,7 @@ void Head::Update()
 			break;
 		}
 		AddPos(Left);
-		CurPos = Left;
+		DirPos = Left;
 		break;
 	}
 	case 'S':
@@ -46,7 +47,7 @@ void Head::Update()
 			break;
 		}
 		AddPos(Down);
-		CurPos = Down;
+		DirPos = Down;
 		break;
 	}
 	case 'W':
@@ -57,7 +58,7 @@ void Head::Update()
 			break;
 		}
 		AddPos(Up);
-		CurPos = Up;
+		DirPos = Up;
 		break;
 	}
 	case 'D':
@@ -68,7 +69,7 @@ void Head::Update()
 			break;
 		}
 		AddPos(Right);
-		CurPos = Right;
+		DirPos = Right;
 		break;
 	}
 	case '1':
