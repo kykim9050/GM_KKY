@@ -32,7 +32,6 @@ void Head::Update()
 	{
 		if (Left == ReversePos())
 		{
-			int a = 0;
 			break;
 		}
 		AddPos(Left);
@@ -42,6 +41,10 @@ void Head::Update()
 	case 'S':
 	case 's':
 	{
+		if (Down == ReversePos())
+		{
+			break;
+		}
 		AddPos(Down);
 		CurPos = Down;
 		break;
@@ -49,6 +52,10 @@ void Head::Update()
 	case 'W':
 	case 'w':
 	{
+		if (Up == ReversePos())
+		{
+			break;
+		}
 		AddPos(Up);
 		CurPos = Up;
 		break;
@@ -56,6 +63,10 @@ void Head::Update()
 	case 'D':
 	case 'd':
 	{
+		if (Right == ReversePos())
+		{
+			break;
+		}
 		AddPos(Right);
 		CurPos = Right;
 		break;
