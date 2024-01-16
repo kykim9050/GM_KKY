@@ -87,25 +87,17 @@ void Head::Update()
 		return;
 	}
 
+	// CurBody의 복사본
+	// Head::Update의 지역변수
 	Body* CurBody = BodyManager::GetCurBody();
 
 	if (CurBody->GetPos() == GetPos())
 	{
+		// 여기에 CurBody와 Head의 관계를 이을 수 있도록 하며
+		// 재귀로 body의 끝에 붙일 수 있도록 하자.
 		Back = CurBody;
-		BodyManager::ResetBody();
-	}
 
-	// 랜덤으로 떨궈진 body를 먹었는지 확인하는 코드 (그 위치를 받아와서 본인 위치와 같은지 확인)
-	// 
-	{
-		if (CurBody->GetPos() == GetPos())
-		{
-			int a = 0;
-		}
-		
-		//// 랜덤한 위치가 지정됐으므로
-		//CurBody = GetCore()->CreateObject<Body>();
-		//CurBody->SetRenderChar('#');
+		BodyManager::ResetBody();
 	}
 	
 }

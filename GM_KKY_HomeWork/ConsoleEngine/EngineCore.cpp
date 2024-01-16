@@ -28,6 +28,8 @@ void EngineCore::Start()
                     MsgBoxAssert("오브젝트가 nullptr인 경우가 존재합니다.");
                 }
 
+                // 해당 Update는 새로 생긴 body를 생성하도록 한다.
+                // Object는 BodyManager 클래스에 해당된다.
                 Object->Update();
             }
         }
@@ -52,6 +54,9 @@ void EngineCore::Start()
                         MsgBoxAssert("오브젝트가 nullptr인 경우가 존재합니다.");
                     }
 
+                    // Object는 AllUpdateObject에 다 들어있다.
+                    // idx 0은 무조건 head, 이후로는 모두 Body
+                    // 해당 Update는 head와 body를 돌면서 오버로딩된 Update 코드를 실행하고 있다.
                     Object->Update();
                 }
             }
