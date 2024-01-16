@@ -94,5 +94,18 @@ void Head::Update()
 		Back = CurBody;
 		BodyManager::ResetBody();
 	}
+
+	// 랜덤으로 떨궈진 body를 먹었는지 확인하는 코드 (그 위치를 받아와서 본인 위치와 같은지 확인)
+	// 
+	{
+		if (CurBody->GetPos() == GetPos())
+		{
+			int a = 0;
+		}
+		
+		//// 랜덤한 위치가 지정됐으므로
+		//CurBody = GetCore()->CreateObject<Body>();
+		//CurBody->SetRenderChar('#');
+	}
 	
 }
