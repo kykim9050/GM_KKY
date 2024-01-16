@@ -24,11 +24,17 @@ void Head::Update()
 	// X Y
 	// 1 0
 
+
 	switch (Select)
 	{
 	case 'A':
 	case 'a':
 	{
+		if (Left == ReversePos())
+		{
+			int a = 0;
+			break;
+		}
 		AddPos(Left);
 		CurPos = Left;
 		break;
