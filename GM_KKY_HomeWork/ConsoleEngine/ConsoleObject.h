@@ -55,11 +55,18 @@ protected:
 	{
 		return DirPos * (-1);
 	}
+
+	inline void SetDirPos(const int2 _Pos)
+	{
+		DirPos = _Pos;
+	}
+
+
+
+private:
 	// 현재 오브젝트가 이동한 방향
 	// Left, Right, Up, Down
 	int2 DirPos = { 0, 0 };
-
-private:
 	int2 PrevPos = { 0, 0 };
 	int2 Pos = { 0, 0 };
 	char RenderChar = '@';

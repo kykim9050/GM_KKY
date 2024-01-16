@@ -36,7 +36,7 @@ void Head::Update()
 			break;
 		}
 		AddPos(Left);
-		DirPos = Left;
+		SetDirPos(Left);
 		break;
 	}
 	case 'S':
@@ -47,7 +47,7 @@ void Head::Update()
 			break;
 		}
 		AddPos(Down);
-		DirPos = Down;
+		SetDirPos(Down);
 		break;
 	}
 	case 'W':
@@ -58,7 +58,7 @@ void Head::Update()
 			break;
 		}
 		AddPos(Up);
-		DirPos = Up;
+		SetDirPos(Up);
 		break;
 	}
 	case 'D':
@@ -69,7 +69,7 @@ void Head::Update()
 			break;
 		}
 		AddPos(Right);
-		DirPos = Right;
+		SetDirPos(Right);
 		break;
 	}
 	case '1':
