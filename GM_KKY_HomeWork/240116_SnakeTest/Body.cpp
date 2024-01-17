@@ -12,10 +12,9 @@ void Body::Update()
 
 	if (nullptr != Front)
 	{
-		SetPos(Front->GetPrevPos());
-		SetPrevPos(GetPos());
+
+		/*SetPos(Front->GetPrevPos());
+		SetPrevPos(GetPos());*/
 	}
-
-
 }
 

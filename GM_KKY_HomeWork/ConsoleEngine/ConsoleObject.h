@@ -46,6 +46,11 @@ public:
 		return DirPos;
 	}
 
+	inline void SetDirPos(const int2 _Pos)
+	{
+		DirPos = _Pos;
+	}
+
 	inline int2 GetPrevDirPos() const
 	{
 		return PrevDirPos;
@@ -56,7 +61,6 @@ public:
 		PrevDirPos = _Pos;
 	}
 
-
 	template<typename EnumType>
 	ConsoleObject* Collision(EnumType _UpdateOrder)
 	{
@@ -66,16 +70,11 @@ public:
 	// 나랑 충돌한 오브젝트
 	ConsoleObject* Collision(int _UpdateOrder);
 
-protected:
-	inline int2 ReversePos() const
+	inline int2 ReversePos()
 	{
 		return DirPos * (-1);
 	}
-
-	inline void SetDirPos(const int2 _Pos)
-	{
-		DirPos = _Pos;
-	}
+protected:
 
 
 

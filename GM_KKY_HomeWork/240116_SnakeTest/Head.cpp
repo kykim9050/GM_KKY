@@ -24,7 +24,8 @@ void Head::Update()
 
 	// X Y
 	// 1 0
-	SetPrevPos(GetPos());
+	//SetPrevPos(GetPos());
+	int2 PrevHeadPos = GetPos();
 
 
 	switch (Select)
@@ -94,17 +95,29 @@ void Head::Update()
 
 	if (CurBody->GetPos() == GetPos())
 	{
-		// 여기에 CurBody와 Head의 관계를 이을 수 있도록 하며
-		// 재귀로 body의 끝에 붙일 수 있도록 하자.
-		Part* TailPtr = FindTail();
+		BodyVector.push_back(CurBody);
+		//// 여기에 CurBody와 Head의 관계를 이을 수 있도록 하며
+		//// 재귀로 body의 끝에 붙일 수 있도록 하자.
+		//Part* TailPtr = FindTail();
 
-		TailPtr->SetBack(CurBody);
-		CurBody->SetFront(TailPtr);
-
-		int a = 0;
-
-
+		/*TailPtr->SetBack(CurBody);
+		CurBody->SetFront(TailPtr);*/
 		BodyManager::ResetBody();
 	}
+
+	int BodyVectorLength = static_cast<int>(BodyVector.size());
+
+	if (BodyVectorLength > 0) {
+		int2 Temp1 = BodyVector[0]->GetPos();
+		BodyVector[0]->SetPos(PrevHeadPos);
+
+		for (int i = 0; i < BodyVectorLength; i++)
+		{
+			int2 Temp2 = BodyVector[i]->GetPos();
+			BodyVector[i]->SetPos(Temp1);
+			Temp1 = Temp2;
+		}
+	}
+
 	
 }
